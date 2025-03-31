@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pré-Matrícula</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 700px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .form-group-inline {
+            display: flex;
+            gap: 10px;
+        }
+        .buttons {
+            text-align: center;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .reset-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Escola Virtual</h1>
+        <h2>Formulário de Pré-Matrícula</h2>
+        <form action="salvaMatricula.php" method="post">
+            <!-- Dados Pessoais -->
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <label for="nomeAluno">Nome do Aluno:</label>
+                <input type="text" id="nomeAluno" name="nomeAluno" required>
+
+                <label for="nascimento">Nascimento (dd/mm/aaaa):</label>
+                <div class="form-group-inline">
+                    <input type="text" id="diaNascimento" name="diaNascimento" maxlength="2" placeholder="DD" required>
+                    <input type="text" id="mesNascimento" name="mesNascimento" maxlength="2" placeholder="MM" required>
+                    <input type="text" id="anoNascimento" name="anoNascimento" maxlength="4" placeholder="AAAA" required>
+                </div>
+
+                <label for="nomeMae">Nome da Mãe:</label>
+                <input type="text" id="nomeMae" name="nomeMae">
+
+                <label for="nomePai">Nome do Pai:</label>
+                <input type="text" id="nomePai" name="nomePai">
+
+                <label>Telefone:</label>
+                <div class="form-group-inline">
+                    <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+                    <input type="text" id="telefone" name="telefone" placeholder="Telefone" required>
+                    <input type="text" id="ramal" name="ramal" placeholder="Ramal" maxlength="4">
+                </div>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+
+            <!-- Informações de Matrícula -->
+            <fieldset>
+                <legend>Informações de Matrícula</legend>
+                <label for="serie">Série:</label>
+                <select id="serie" name="serie">
+                    <option value="pre-escolar">Pré-escolar</option>
+                    <option value="fundamental">Ensino Fundamental</option>
+                    <option value="medio">Ensino Médio</option>
+                </select>
+
+                <label>Turno:</label>
+                <input type="radio" id="manha" name="turno" value="Manhã" required>
+                <label for="manha">Manhã</label>
+                <input type="radio" id="tarde" name="turno" value="Tarde">
+                <label for="tarde">Tarde</label>
+
+                <label>Atividades Extracurriculares:</label>
+                <input type="checkbox" id="informatica" name="atividades[]" value="Informática">
+                <label for="informatica">Informática</label>
+                <input type="checkbox" id="musica" name="atividades[]" value="Música">
+                <label for="musica">Música</label>
+                <input type="checkbox" id="ballet" name="atividades[]" value="Ballet">
+                <label for="ballet">Ballet</label>
+                <input type="checkbox" id="pintura" name="atividades[]" value="Pintura">
+                <label for="pintura">Pintura</label>
+                <input type="checkbox" id="judo" name="atividades[]" value="Judô">
+                <label for="judo">Judô</label>
+                <input type="checkbox" id="futebol" name="atividades[]" value="Futebol">
+                <label for="futebol">Futebol</label>
+            </fieldset>
+
+            <!-- Botões -->
+            <div class="buttons">
+                <button type="submit" class="submit-btn">Enviar Formulário</button>
+                <button type="reset" class="reset-btn">Limpar Campos</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
